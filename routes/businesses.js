@@ -31,6 +31,23 @@ router.get("/:username", async function (req, res, next) {
   }
 });
 
+/** GET /[business] => { profile }
+ *
+ * Returns {id, type, description, price, businesses_id}
+ *   where jobs is { id, title, companyHandle, companyName, state }
+ *
+ * Authorization required: admin or same user-as-:username
+ **/
+
+router.get("/profile/:username", async function (req, res, next) {
+  try {
+    const user = await Businesses.getBusiness(req.params.username);
+    return res.json({ user });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 /** POST /[business] { dish } => { dish }
  *
  * Dish should be { type, name, description, price, businesses_id }

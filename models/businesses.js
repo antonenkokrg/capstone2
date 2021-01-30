@@ -112,6 +112,21 @@ class Businesses {
     return userRes.rows;
   }
 
+  static async getBusiness(username) {
+    const userRes = await db.query(
+      `SELECT username, email, logo_url, address
+           FROM businesses
+           WHERE username = $1`,
+      [username],
+    );
+
+    const user = userRes.rows[0];
+
+    if (!user) throw new NotFoundError(`No user: ${username}`);
+
+    return user;
+  }
+
   static async create(data, username) {
     const result = await db.query(
       `INSERT INTO dishes (type,
