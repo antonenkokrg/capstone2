@@ -9,8 +9,10 @@ VALUES ('testuser',
         'joel@joelburton.com');
 
 INSERT INTO dishes (type, name, description, price, businesses_id)
-VALUES ('Dinner', 'Double-double', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 9.99,'testuser'),
-       ('Dinner', 'Hamburger', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 7.99,'testuser'),
-       ('Dinner', 'Cheeseburger', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 6.99,'testuser'),
-       ('Dinner', 'Fries', 'fried potatos', 3.99,'testuser');
+VALUES ('Main', 'Double-double', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 9.99,'testuser'),
+       ('Main', 'Hamburger', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 7.99,'testuser'),
+       ('Main', 'Cheeseburger', 'Ground meat, usually beef, placed inside a sliced bread roll or bun.', 6.99,'testuser'),
+       ('Side', 'Fries', 'fried potatos', 3.99,'testuser'),
+       ('Side', 'Rice', 'fried potatos', 1.99,'testuser'),
+       ('Drink','Coke', '',1.29,'testuser');
        

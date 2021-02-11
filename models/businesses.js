@@ -104,7 +104,8 @@ class Businesses {
     const userRes = await db.query(
       `SELECT *
            FROM dishes
-           WHERE businesses_id = $1`,
+           WHERE businesses_id = $1 order by  CASE  WHEN type = 'Main' THEN '1'
+           WHEN type = 'Side' THEN '2' ELSE type END ASC`,
       [business],
     );
 
@@ -135,7 +136,7 @@ class Businesses {
                              price,
                              businesses_id)
            VALUES ($1, $2, $3, $4, $5)
-           RETURNING id, name`,
+           RETURNING id, type,name, description, price`,
       [
         data.type,
         data.name,
